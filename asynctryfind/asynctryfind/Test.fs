@@ -34,3 +34,13 @@ let goTest2 =
 let goTest3 = 
     list |> AsyncCoreTryFind(fakeF)
 
+
+
+let wait = async {
+        do! Async.Sleep 300
+        printfn "... 300"
+        do! Async.Sleep 300
+        printfn "... 600"
+        do! Async.Sleep 300
+        printfn "... 900"
+    }

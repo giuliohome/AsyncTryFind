@@ -9,8 +9,8 @@ let main argv =
         match r with
         | Some i -> printfn "%s" i.Name
         | None -> printfn "not found"
-    } |> Async.RunSynchronously
-
+    } |> Async.Start
+    wait |> Async.Start
 
 
     System.Console.ReadLine () |> ignore
@@ -27,7 +27,8 @@ let main argv =
         match r with
         | Some i -> printfn "method3 async %s" i.Name
         | None -> printfn "method3 async not found"
-    } |> Async.RunSynchronously
+    } |> Async.Start
+    wait |> Async.Start
 
 
     System.Console.ReadLine () |> ignore
