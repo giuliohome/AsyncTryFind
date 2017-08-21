@@ -37,10 +37,7 @@ let goTest3 =
 
 
 let wait = async {
-        do! Async.Sleep 1500
-        printfn "... 1500"
-        do! Async.Sleep 1500
-        printfn "... 3000"
-        do! Async.Sleep 1500
-        printfn "... 4500"
+        for i in 1..10 do
+            do! Async.Sleep 500
+            printfn "... %i" (i*500)
     }
