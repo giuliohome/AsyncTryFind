@@ -24,12 +24,10 @@ let rec tryFindRec (f : 'T -> Async<bool>) (ts : 'T list) = async {
 let CoreTryFind (f : 'T -> Async<bool>) (ts : 'T list) =
     ts
     |> Seq.tryFind( fun x -> 
-            async { return! f x
-            } |> Async.RunSynchronously ) 
+            Async.RunSynchronously <| f x  ) 
 
 let AsyncCoreTryFind (f : 'T -> Async<bool>) (ts : 'T list) = async {
     return ts
     |> Seq.tryFind( fun x -> 
-            async { return! f x
-            } |> Async.RunSynchronously ) 
+            Async.RunSynchronously <| f x   ) 
     }
