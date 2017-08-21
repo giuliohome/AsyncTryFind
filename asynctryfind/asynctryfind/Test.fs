@@ -30,3 +30,7 @@ let goTest  =
 let goTest2 = 
     list |>  CoreTryFind(fakeF) 
 
+
+let goTest3 = 
+    list |> AsyncCoreTryFind(fakeF)
+

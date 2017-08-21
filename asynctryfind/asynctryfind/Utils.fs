@@ -26,3 +26,10 @@ let CoreTryFind (f : 'T -> Async<bool>) (ts : 'T list) =
     |> Seq.tryFind( fun x -> 
             async { return! f x
             } |> Async.RunSynchronously ) 
+
+let AsyncCoreTryFind (f : 'T -> Async<bool>) (ts : 'T list) = async {
+    return ts
+    |> Seq.tryFind( fun x -> 
+            async { return! f x
+            } |> Async.RunSynchronously ) 
+    }

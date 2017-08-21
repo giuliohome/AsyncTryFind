@@ -18,6 +18,17 @@ let main argv =
     match r2 with
         | Some i -> printfn "method2 %s" i.Name
         | None -> printfn "method2 not found"
+        
+    System.Console.ReadLine () |> ignore
+
+
+    async {
+        let! r = goTest3
+        match r with
+        | Some i -> printfn "method3 async %s" i.Name
+        | None -> printfn "method3 async not found"
+    } |> Async.RunSynchronously
+
 
     System.Console.ReadLine () |> ignore
     printfn "%A" argv
